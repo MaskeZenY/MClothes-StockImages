@@ -87,8 +87,7 @@ app.delete("/deleteimage/:servername/:imageName", (req, res) => {
   const { servername, imageName } = req.params;
   const imagePath = path.join(__dirname, "uploads", servername, imageName);
 
-  if (fs.existsSync(imagePath)) {
-  if (fs.existsSync(imagePath)) {
+  if (fs.existsSync(imagePath)) {  
     fs.unlink(imagePath, (err) => {
       if (err) {
         console.error("Erreur lors de la suppression :", err);
@@ -96,7 +95,7 @@ app.delete("/deleteimage/:servername/:imageName", (req, res) => {
       }
       res.status(200).json({ message: "Image supprimée avec succès !" });
     });
-  } else {
+  } else {  
     res.status(404).json({ error: "Image introuvable." });
   }
 });
